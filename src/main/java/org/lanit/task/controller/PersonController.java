@@ -34,6 +34,9 @@ public class PersonController {
         if (person == null) {
             return ResponseEntity.notFound().build();
         }
+           if (person.getCars().isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
         return ResponseEntity.ok(person);
     }
 }
